@@ -11,7 +11,7 @@ stages:
 - stage: '${{ parameters.stageName }}'
   displayName: 'Deploy to the staging environment'
   dependsOn: '${{ parameters.dependsOn }}'
-  condition: '${{ condition }}'
+  condition: '${{ parameters.condition }}'
   jobs:
   - deployment: Deploy
     pool:
