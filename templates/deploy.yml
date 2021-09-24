@@ -1,15 +1,15 @@
 parameters:
   stageName: 'Dev'
   envName: 'dev'
-  webAppName: 'WebAppNameDev'
   dependsOn: []
   condition: always()
   artifactName: 'drop'
+  webAppName: 'WebAppNameDev'
   buildConfiguration: 'Release'
   
 stages:
 - stage: '${{ parameters.stageName }}'
-  displayName: 'Deploy to the staging environment'
+  displayName: 'Deploy to the ${{ parameters.envName }} environment'
   dependsOn: '${{ parameters.dependsOn }}'
   condition: '${{ parameters.condition }}'
   jobs:
@@ -29,5 +29,5 @@ stages:
             displayName: 'Azure App Service Deploy: website'
             inputs:
               azureSubscription: 'Resource Manager - Tailspin - Space Game'
-              appName: '{{}}'
+              appName: '${{ parameters.webAppName }}'
               package: '$(Pipeline.Workspace)/drop/${{ parameters.buildConfiguration }}/*.zip'
