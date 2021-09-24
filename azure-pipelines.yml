@@ -75,7 +75,7 @@ stages:
     - publish: '$(Build.ArtifactStagingDirectory)'
       artifact: $(artifactName)
 
-- template: templates/build.yml
+- template: templates/deploy.yml
   parameters:
     stageName: 'Dev'
     envName: 'dev'
