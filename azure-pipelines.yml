@@ -96,7 +96,7 @@ stages:
     envName: 'test'
     dependsOn: Dev
     artifactName: '$(artifactName)'
-    webAppName: '$(WebAppNameDev)'
+    webAppName: '$(WebAppNameTest)'
     buildConfiguration: '$(buildConfiguration)'
 
 - template: templates/deploy.yml
@@ -105,5 +105,5 @@ stages:
     envName: 'staging'
     dependsOn: Test
     artifactName: '$(artifactName)'
-    webAppName: '$(WebAppNameDev)'
+    webAppName: '$(WebAppNameStaging)'
     buildConfiguration: '$(buildConfiguration)'
